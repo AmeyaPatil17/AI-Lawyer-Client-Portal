@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // The URI we are using in production
-const uri = "mongodb+srv://ameya_db_user:JFynXSPQqo3Z5VL8@cluster0.d90emim.mongodb.net/will_guide?retryWrites=true&w=majority";
+const uri = "MongoDB Atlas Database URI Here";
 
 console.log("Attempting to connect to MongoDB Atlas...");
 
