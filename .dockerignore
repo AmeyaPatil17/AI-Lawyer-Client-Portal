@@ -1,0 +1,14 @@
+node_modules
+.git
+.gitignore
+.env
+dist
+coverage
+npm-debug.log
+Dockerfile
+README.md
+gcp_deploy.md
+client/node_modules
+client/dist
+server/node_modules
+server/dist

@@ -1,0 +1,474 @@
+FAIL src/tests/docxService.test.ts (6.461 s)
+  ● DocxService › generateIntakeDoc › should generate a .docx file and return its filename for a complete intake
+
+    TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+
+    [0m [90m 74 |[39m             memoChildren[33m.[39mpush([36mnew[39m [33mParagraph[39m({
+     [90m 75 |[39m                 children[33m:[39m [
+    [31m[1m>[22m[39m[90m 76 |[39m                     [36mnew[39m [33mTextRun[39m({ text[33m:[39m [32m`[${flag.severity.toUpperCase()}] ${flag.label}`[39m[33m,[39m bold[33m:[39m [36mtrue[39m[33m,[39m color[33m:[39m [32m"red"[39m })[33m,[39m
+     [90m    |[39m                                                           [31m[1m^[22m[39m
+     [90m 77 |[39m                     [36mnew[39m [33mTextRun[39m({ text[33m:[39m [32m`: ${flag.description}`[39m })
+     [90m 78 |[39m                 ][33m,[39m
+     [90m 79 |[39m                 bullet[33m:[39m { level[33m:[39m [35m0[39m }[0m
+
+      at src/services/docxService.ts:76:59
+          at Array.forEach (<anonymous>)
+      at src/services/docxService.ts:73:15
+      at src/services/docxService.ts:8:71
+      at __awaiter (src/services/docxService.ts:4:12)
+      at generateIntakeDoc (src/services/docxService.ts:16:81)
+      at src/tests/docxService.test.ts:34:53
+      at src/tests/docxService.test.ts:8:71
+      at __awaiter (src/tests/docxService.test.ts:4:12)
+      at Object.<anonymous> (src/tests/docxService.test.ts:19:101)
+
+  ● DocxService › generateIntakeDoc › should handle missing data gracefully (fallback structures)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^Intake_Client_.*\.docx$/
+    Received string:  "DraftWill_Client_1774371468349.docx"
+
+    [0m [90m 51 |[39m             [36mconst[39m filename [33m=[39m [36mawait[39m generateIntakeDoc(emptyIntakeRecord[33m,[39m outputDir)[33m;[39m
+     [90m 52 |[39m
+    [31m[1m>[22m[39m[90m 53 |[39m             expect(filename)[33m.[39mtoMatch([35m/^Intake_Client_.*\.docx$/[39m)[33m;[39m
+     [90m    |[39m                              [31m[1m^[22m[39m
+     [90m 54 |[39m             expect(fs[33m.[39mwriteFileSync)[33m.[39mtoHaveBeenCalled()[33m;[39m
+     [90m 55 |[39m         })[33m;[39m
+     [90m 56 |[39m     })[33m;[39m[0m
+
+      at src/tests/docxService.test.ts:53:30
+      at fulfilled (src/tests/docxService.test.ts:5:58)
+
+PASS src/tests/validateRequest.test.ts (7.688 s)
+FAIL src/tests/aiCaching.test.ts (7.973 s)
+  ● Console
+
+    console.error
+      AI Explain Risk Error: TypeError: getGenAI(...).getGenerativeModel is not a function
+          at getModel (C:\xampp\htdocs\will_guide\server\src\services\aiService.ts:24:45)
+          at C:\xampp\htdocs\will_guide\server\src\services\aiService.ts:498:30
+          at Generator.next (<anonymous>)
+          at C:\xampp\htdocs\will_guide\server\src\services\aiService.ts:8:71
+          at new Promise (<anonymous>)
+          at __awaiter (C:\xampp\htdocs\will_guide\server\src\services\aiService.ts:4:12)
+          at explainRisk (C:\xampp\htdocs\will_guide\server\src\services\aiService.ts:481:89)
+          at Object.<anonymous> (C:\xampp\htdocs\will_guide\server\src\tests\aiCaching.test.ts:42:16)
+          at Promise.finally.completed (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at processTicksAndRejections (node:internal/process/task_queues:103:5)
+          at _runTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+          at run (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\runner.js:101:19)
+          at runTestInternal (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:275:16)
+          at runTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:343:7)
+          at Object.worker (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 500 |[39m         [36mreturn[39m response[33m.[39mtext()[33m.[39mtrim()[33m;[39m
+     [90m 501 |[39m     } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 502 |[39m         console[33m.[39merror([32m"AI Explain Risk Error:"[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 503 |[39m
+     [90m 504 |[39m         [90m// Fallback to static strings if AI fails or latent[39m
+     [90m 505 |[39m         [36mif[39m (flagCode [33m===[39m [32m'Foreign Assets'[39m [33m||[39m flagCode [33m===[39m [32m'FOREIGN_ASSETS'[39m) {[0m
+
+      at src/services/aiService.ts:502:17
+      at src/services/aiService.ts:8:71
+      at __awaiter (src/services/aiService.ts:4:12)
+      at explainRisk (src/services/aiService.ts:481:89)
+      at Object.<anonymous> (src/tests/aiCaching.test.ts:42:16)
+
+    console.error
+      AI Explain Risk Error: TypeError: getGenAI(...).getGenerativeModel is not a function
+          at getModel (C:\xampp\htdocs\will_guide\server\src\services\aiService.ts:24:45)
+          at C:\xampp\htdocs\will_guide\server\src\services\aiService.ts:498:30
+          at Generator.next (<anonymous>)
+          at C:\xampp\htdocs\will_guide\server\src\services\aiService.ts:8:71
+          at new Promise (<anonymous>)
+          at __awaiter (C:\xampp\htdocs\will_guide\server\src\services\aiService.ts:4:12)
+          at explainRisk (C:\xampp\htdocs\will_guide\server\src\services\aiService.ts:481:89)
+          at C:\xampp\htdocs\will_guide\server\src\tests\aiCaching.test.ts:43:20
+          at processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+    [0m [90m 500 |[39m         [36mreturn[39m response[33m.[39mtext()[33m.[39mtrim()[33m;[39m
+     [90m 501 |[39m     } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 502 |[39m         console[33m.[39merror([32m"AI Explain Risk Error:"[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 503 |[39m
+     [90m 504 |[39m         [90m// Fallback to static strings if AI fails or latent[39m
+     [90m 505 |[39m         [36mif[39m (flagCode [33m===[39m [32m'Foreign Assets'[39m [33m||[39m flagCode [33m===[39m [32m'FOREIGN_ASSETS'[39m) {[0m
+
+      at src/services/aiService.ts:502:17
+      at src/services/aiService.ts:8:71
+      at __awaiter (src/services/aiService.ts:4:12)
+      at explainRisk (src/services/aiService.ts:481:89)
+      at src/tests/aiCaching.test.ts:43:20
+
+  ● AI Model Caching (Issue #6) › should only create GoogleGenerativeAI once across multiple calls
+
+    expect(jest.fn()).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 1
+    Received number of calls: 0
+
+    [0m [90m 43 |[39m             [36mreturn[39m explainRisk([32m'TEST2'[39m[33m,[39m {})[33m.[39mthen(() [33m=>[39m {
+     [90m 44 |[39m                 [90m// GoogleGenerativeAI constructor should be called only once (cached)[39m
+    [31m[1m>[22m[39m[90m 45 |[39m                 expect([33mGoogleGenerativeAI[39m)[33m.[39mtoHaveBeenCalledTimes([35m1[39m)[33m;[39m
+     [90m    |[39m                                            [31m[1m^[22m[39m
+     [90m 46 |[39m             })[33m;[39m
+     [90m 47 |[39m         })[33m;[39m
+     [90m 48 |[39m     })[33m;[39m[0m
+
+      at src/tests/aiCaching.test.ts:45:44
+
+PASS src/tests/schemas.test.ts
+PASS src/tests/rulesEngine.test.ts
+PASS src/tests/authMiddleware.test.ts
+PASS src/tests/ageCalculation.test.ts
+PASS src/tests/intakeValidationService.test.ts
+PASS src/tests/lawyerController.test.ts
+FAIL src/tests/clientAIController.test.ts (9.317 s)
+  ● Client AI Controller › should return AI response for valid input
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    - Expected
+    + Received
+
+      "Help me",
+      {"name": "John"},
+      "profile",
+    + [],
+
+    Number of calls: 1
+
+    [0m [90m 31 |[39m         expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m 32 |[39m         expect(res[33m.[39mbody[33m.[39mreply)[33m.[39mtoBe([32m"AI Helper Response"[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 33 |[39m         expect(aiService[33m.[39mgenerateAIResponse)[33m.[39mtoHaveBeenCalledWith([32m"Help me"[39m[33m,[39m { name[33m:[39m [32m"John"[39m }[33m,[39m [32m"profile"[39m)[33m;[39m
+     [90m    |[39m                                              [31m[1m^[22m[39m
+     [90m 34 |[39m     })[33m;[39m
+     [90m 35 |[39m
+     [90m 36 |[39m     it([32m'should default context if not provided'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at src/tests/clientAIController.test.ts:33:46
+      at fulfilled (src/tests/clientAIController.test.ts:38:58)
+
+  ● Client AI Controller › should default context if not provided
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    - Expected
+    + Received
+
+      "Hello",
+      {},
+      "unknown",
+    + [],
+
+    Number of calls: 1
+
+    [0m [90m 43 |[39m         expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m 44 |[39m         [90m// Expect service called with empty object and 'unknown' default[39m
+    [31m[1m>[22m[39m[90m 45 |[39m         expect(aiService[33m.[39mgenerateAIResponse)[33m.[39mtoHaveBeenCalledWith([32m"Hello"[39m[33m,[39m {}[33m,[39m [32m"unknown"[39m)[33m;[39m
+     [90m    |[39m                                              [31m[1m^[22m[39m
+     [90m 46 |[39m     })[33m;[39m
+     [90m 47 |[39m
+     [90m 48 |[39m     it([32m'should return 400 if message is missing'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at src/tests/clientAIController.test.ts:45:46
+      at fulfilled (src/tests/clientAIController.test.ts:38:58)
+
+FAIL src/tests/documentController.test.ts (9.883 s)
+  ● DocumentController › downloadIntakeDoc › should return 500 if generation fails
+
+    expect(received).toHaveProperty(path, value)
+
+    Expected path: "message"
+    Received path: []
+
+    Expected value: "Generation failed"
+    Received value: [Function mockConstructor]
+
+    [0m [90m 64 |[39m
+     [90m 65 |[39m             expect(statusMock)[33m.[39mtoHaveBeenCalledWith([35m500[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 66 |[39m             expect(jsonMock)[33m.[39mtoHaveProperty([32m'message'[39m[33m,[39m [32m'Generation failed'[39m)[33m;[39m
+     [90m    |[39m                              [31m[1m^[22m[39m
+     [90m 67 |[39m         })[33m;[39m
+     [90m 68 |[39m     })[33m;[39m
+     [90m 69 |[39m })[33m;[39m[0m
+
+      at src/tests/documentController.test.ts:66:30
+      at fulfilled (src/tests/documentController.test.ts:5:58)
+
+FAIL src/tests/authController.test.ts (9.908 s)
+  ● AuthController › register › should handle server errors
+
+    expect(received).toHaveProperty(path, value)
+
+    Expected path: "message"
+    Received path: []
+
+    Expected value: "Server error"
+    Received value: [Function mockConstructor]
+
+    [0m [90m 68 |[39m
+     [90m 69 |[39m             expect(statusMock)[33m.[39mtoHaveBeenCalledWith([35m500[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 70 |[39m             expect(jsonMock)[33m.[39mtoHaveProperty([32m'message'[39m[33m,[39m [32m'Server error'[39m)[33m;[39m
+     [90m    |[39m                              [31m[1m^[22m[39m
+     [90m 71 |[39m         })[33m;[39m
+     [90m 72 |[39m     })[33m;[39m
+     [90m 73 |[39m[0m
+
+      at src/tests/authController.test.ts:70:30
+      at fulfilled (src/tests/authController.test.ts:5:58)
+
+  ● AuthController › login › should handle server errors
+
+    expect(received).toHaveProperty(path, value)
+
+    Expected path: "message"
+    Received path: []
+
+    Expected value: "Server error"
+    Received value: [Function mockConstructor]
+
+    [0m [90m 134 |[39m
+     [90m 135 |[39m             expect(statusMock)[33m.[39mtoHaveBeenCalledWith([35m500[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 136 |[39m             expect(jsonMock)[33m.[39mtoHaveProperty([32m'message'[39m[33m,[39m [32m'Server error'[39m)[33m;[39m
+     [90m     |[39m                              [31m[1m^[22m[39m
+     [90m 137 |[39m             consoleSpy[33m.[39mmockRestore()[33m;[39m
+     [90m 138 |[39m         })[33m;[39m
+     [90m 139 |[39m     })[33m;[39m[0m
+
+      at src/tests/authController.test.ts:136:30
+      at fulfilled (src/tests/authController.test.ts:5:58)
+
+PASS src/tests/emailService.test.ts (9.97 s)
+FAIL src/tests/triageController.test.ts (10.212 s)
+  ● TriageController › submitTriage › should handle server errors gracefully
+
+    expect(received).toHaveProperty(path, value)
+
+    Expected path: "message"
+    Received path: []
+
+    Expected value: "Server error"
+    Received value: [Function mockConstructor]
+
+    [0m [90m 124 |[39m
+     [90m 125 |[39m             expect(statusMock)[33m.[39mtoHaveBeenCalledWith([35m500[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 126 |[39m             expect(jsonMock)[33m.[39mtoHaveProperty([32m'message'[39m[33m,[39m [32m'Server error'[39m)[33m;[39m
+     [90m     |[39m                              [31m[1m^[22m[39m
+     [90m 127 |[39m             consoleSpy[33m.[39mmockRestore()[33m;[39m
+     [90m 128 |[39m         })[33m;[39m
+     [90m 129 |[39m     })[33m;[39m[0m
+
+      at src/tests/triageController.test.ts:126:30
+      at fulfilled (src/tests/triageController.test.ts:5:58)
+
+FAIL src/tests/handleExplainRisk.test.ts (10.442 s)
+  ● Console
+
+    console.log
+      Loaded environment from C:\xampp\htdocs\will_guide\.env
+
+      at Object.<anonymous> (src/index.ts:18:13)
+
+    console.log
+      GEMINI_API_KEY present: true
+
+      at Object.<anonymous> (src/index.ts:19:13)
+
+  ● handleExplainRisk Error Response (Issue #3) › should return 500 with JSON error when explainRisk throws
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 500
+    Received: 400
+
+    [0m [90m 44 |[39m             [33m.[39msend({ code[33m:[39m [32m'FOREIGN_ASSETS'[39m })[33m;[39m
+     [90m 45 |[39m
+    [31m[1m>[22m[39m[90m 46 |[39m         expect(res[33m.[39mstatus)[33m.[39mtoBe([35m500[39m)[33m;[39m
+     [90m    |[39m                            [31m[1m^[22m[39m
+     [90m 47 |[39m         expect(res[33m.[39mbody)[33m.[39mtoHaveProperty([32m'message'[39m)[33m;[39m
+     [90m 48 |[39m         expect(res[33m.[39mbody[33m.[39mmessage)[33m.[39mtoContain([32m'Failed'[39m)[33m;[39m
+     [90m 49 |[39m     })[33m;[39m[0m
+
+      at src/tests/handleExplainRisk.test.ts:46:28
+      at fulfilled (src/tests/handleExplainRisk.test.ts:5:58)
+
+  ● handleExplainRisk Error Response (Issue #3) › should return explanation when explainRisk succeeds
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 400
+
+    [0m [90m 63 |[39m             [33m.[39msend({ code[33m:[39m [32m'FOREIGN_ASSETS'[39m })[33m;[39m
+     [90m 64 |[39m
+    [31m[1m>[22m[39m[90m 65 |[39m         expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m    |[39m                            [31m[1m^[22m[39m
+     [90m 66 |[39m         expect(res[33m.[39mbody)[33m.[39mtoHaveProperty([32m'explanation'[39m)[33m;[39m
+     [90m 67 |[39m         expect(res[33m.[39mbody[33m.[39mexplanation)[33m.[39mtoBe([32m'This is a risk because...'[39m)[33m;[39m
+     [90m 68 |[39m     })[33m;[39m[0m
+
+      at src/tests/handleExplainRisk.test.ts:65:28
+      at fulfilled (src/tests/handleExplainRisk.test.ts:5:58)
+
+FAIL src/tests/controllers.test.ts (10.675 s)
+  ● Console
+
+    console.log
+      Loaded environment from C:\xampp\htdocs\will_guide\.env
+
+      at Object.<anonymous> (src/index.ts:18:13)
+
+    console.log
+      GEMINI_API_KEY present: true
+
+      at Object.<anonymous> (src/index.ts:19:13)
+
+    console.error
+      Controller Error: Error: AI crash
+          at C:\xampp\htdocs\will_guide\server\src\tests\controllers.test.ts:109:69
+          at Generator.next (<anonymous>)
+          at C:\xampp\htdocs\will_guide\server\src\tests\controllers.test.ts:8:71
+          at new Promise (<anonymous>)
+          at __awaiter (C:\xampp\htdocs\will_guide\server\src\tests\controllers.test.ts:4:12)
+          at Object.<anonymous> (C:\xampp\htdocs\will_guide\server\src\tests\controllers.test.ts:108:59)
+          at Promise.finally.completed (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at processTicksAndRejections (node:internal/process/task_queues:103:5)
+          at _runTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+          at run (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\runner.js:101:19)
+          at runTestInternal (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:275:16)
+          at runTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:343:7)
+          at Object.worker (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 15 |[39m         res[33m.[39mjson({ reply[33m:[39m aiResponse })[33m;[39m
+     [90m 16 |[39m     } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 17 |[39m         console[33m.[39merror([32m'Controller Error:'[39m[33m,[39m error)[33m;[39m
+     [90m    |[39m                 [31m[1m^[22m[39m
+     [90m 18 |[39m         res[33m.[39mstatus([35m500[39m)[33m.[39mjson({ error[33m:[39m [32m'Internal Server Error'[39m })[33m;[39m
+     [90m 19 |[39m     }
+     [90m 20 |[39m }[33m;[39m[0m
+
+      at src/controllers/clientAIController.ts:17:17
+          at Generator.throw (<anonymous>)
+      at rejected (src/controllers/clientAIController.ts:6:65)
+
+  ● Controller Integration Tests › Intake Controller › GET /api/intake/:id/suggestions › should return suggestions array
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"id": "test"}]
+    Received: {"suggestions": [{"id": "test"}]}
+
+    [0m [90m 121 |[39m                 [36mconst[39m res [33m=[39m [36mawait[39m request(app)[33m.[39m[36mget[39m([32m'/api/intake/123/suggestions'[39m)[33m;[39m
+     [90m 122 |[39m                 expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 123 |[39m                 expect(res[33m.[39mbody)[33m.[39mtoEqual([{ id[33m:[39m [32m'test'[39m }])[33m;[39m
+     [90m     |[39m                                  [31m[1m^[22m[39m
+     [90m 124 |[39m             })[33m;[39m
+     [90m 125 |[39m         })[33m;[39m
+     [90m 126 |[39m[0m
+
+      at src/tests/controllers.test.ts:123:34
+      at fulfilled (src/tests/controllers.test.ts:5:58)
+
+  ● Controller Integration Tests › Intake Controller › POST /api/intake/:id/notes › should add note to intake
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 400
+
+    [0m [90m 131 |[39m                     [33m.[39mpost([32m'/api/intake/123/notes'[39m)
+     [90m 132 |[39m                     [33m.[39msend({ note[33m:[39m [32m'A new note'[39m })[33m;[39m
+    [31m[1m>[22m[39m[90m 133 |[39m                 expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                                    [31m[1m^[22m[39m
+     [90m 134 |[39m                 expect(mockIntake[33m.[39msave)[33m.[39mtoHaveBeenCalled()[33m;[39m
+     [90m 135 |[39m             })[33m;[39m
+     [90m 136 |[39m[0m
+
+      at src/tests/controllers.test.ts:133:36
+      at fulfilled (src/tests/controllers.test.ts:5:58)
+
+  ● Controller Integration Tests › Intake Controller › POST /api/intake/:id/notes › should return 404 if intake missing
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 404
+    Received: 400
+
+    [0m [90m 140 |[39m                     [33m.[39mpost([32m'/api/intake/999/notes'[39m)
+     [90m 141 |[39m                     [33m.[39msend({ note[33m:[39m [32m'A new note'[39m })[33m;[39m
+    [31m[1m>[22m[39m[90m 142 |[39m                 expect(res[33m.[39mstatus)[33m.[39mtoBe([35m404[39m)[33m;[39m
+     [90m     |[39m                                    [31m[1m^[22m[39m
+     [90m 143 |[39m             })[33m;[39m
+     [90m 144 |[39m         })[33m;[39m
+     [90m 145 |[39m[0m
+
+      at src/tests/controllers.test.ts:142:36
+      at fulfilled (src/tests/controllers.test.ts:5:58)
+
+  ● Controller Integration Tests › Intake Controller › POST /api/intake/:id/import-assets › should return parsed assets on success
+
+    expect(received).toHaveProperty(path)
+
+    Expected path: "parsedAssets"
+    Received path: []
+
+    Received value: {"_id": "123", "clientId": "test-user", "data": {"assets": {"list": []}, "personalProfile": {"fullName": "Updated"}}, "flags": [], "logicWarnings": []}
+
+    [0m [90m 153 |[39m                     [33m.[39mattach([32m'file'[39m[33m,[39m [33mBuffer[39m[33m.[39m[36mfrom[39m([32m'test file content'[39m)[33m,[39m [32m'test.txt'[39m)[33m;[39m
+     [90m 154 |[39m                 expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 155 |[39m                 expect(res[33m.[39mbody)[33m.[39mtoHaveProperty([32m'parsedAssets'[39m)[33m;[39m
+     [90m     |[39m                                  [31m[1m^[22m[39m
+     [90m 156 |[39m             })[33m;[39m
+     [90m 157 |[39m
+     [90m 158 |[39m             it([32m'should fallback to 400 if no file provided'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at src/tests/controllers.test.ts:155:34
+      at fulfilled (src/tests/controllers.test.ts:5:58)
+
+FAIL src/tests/aiService.test.ts (11.443 s)
+  ● AIService › Wrapper Functions › parseAssetsFromFile should call AI and parse result
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: ArrayContaining [StringContaining "Extract all tangible and intangible assets"]
+    Received: ["Extract all financial assets, including institution names, account types, and approximate values from this document. Return JSON matching our Asset interface with keys: realEstate_items, bankAccounts_items, investments_items, business_items, other_items. Each item should have description, value (string), and ownership (sole/joint).", {"inlineData": {"data": "UERGIGNvbnRlbnQgbW9jaw==", "mimeType": "application/pdf"}}]
+
+    Number of calls: 1
+
+    [0m [90m 293 |[39m             expect(result[33m.[39mrealEstate_items[[35m0[39m][33m.[39mdescription)[33m.[39mtoBe([32m'Office'[39m)[33m;[39m
+     [90m 294 |[39m             [90m// Check that the prompt includes the correct instructions[39m
+    [31m[1m>[22m[39m[90m 295 |[39m             expect(localMock)[33m.[39mtoHaveBeenCalledWith(expect[33m.[39marrayContaining([
+     [90m     |[39m                               [31m[1m^[22m[39m
+     [90m 296 |[39m                 expect[33m.[39mstringContaining([32m'Extract all tangible and intangible assets'[39m)
+     [90m 297 |[39m             ]))[33m;[39m
+     [90m 298 |[39m         })[33m;[39m[0m
+
+      at src/tests/aiService.test.ts:295:31
+      at fulfilled (src/tests/aiService.test.ts:5:58)
+
+Test Suites: 9 failed, 8 passed, 17 total
+Tests:       16 failed, 106 passed, 122 total
+Snapshots:   0 total
+Time:        12.929 s, estimated 14 s
+Ran all test suites.

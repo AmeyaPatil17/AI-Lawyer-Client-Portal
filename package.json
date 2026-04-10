@@ -1,0 +1,25 @@
+{
+    "name": "will-guide-monorepo",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": [
+        "client",
+        "server"
+    ],
+    "scripts": {
+        "prepare": "husky || echo 'Husky not installed'",
+        "test": "npm run test --workspaces",
+        "e2e": "npx playwright test",
+        "e2e:headed": "npx playwright test --headed",
+        "e2e:report": "npx playwright show-report"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^18.0.0",
+        "@commitlint/config-conventional": "^18.0.0",
+        "@playwright/test": "^1.44.0",
+        "bcryptjs": "^3.0.3",
+        "dotenv": "^17.4.0",
+        "husky": "^9.0.0",
+        "mongoose": "^9.3.3"
+    }
+}

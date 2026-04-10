@@ -1,0 +1,139 @@
+PASS src/tests/aiCaching.test.ts (5.4 s)
+PASS src/tests/validateRequest.test.ts (7.962 s)
+PASS src/tests/rulesEngine.test.ts
+PASS src/tests/schemas.test.ts
+PASS src/tests/clientAIController.test.ts (9.099 s)
+PASS src/tests/ageCalculation.test.ts
+PASS src/tests/emailService.test.ts (9.833 s)
+PASS src/tests/intakeValidationService.test.ts
+PASS src/tests/authMiddleware.test.ts
+PASS src/tests/authController.test.ts (11.022 s)
+PASS src/tests/lawyerController.test.ts (5.839 s)
+FAIL src/tests/docxService.test.ts (11.487 s)
+  ● DocxService › generateIntakeDoc › should generate a .docx file and return its filename for a complete intake
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^Intake_John_Doe_.*\.docx$/
+    Received string:  "DraftWill_John Doe_1774372121327.docx"
+
+    [0m [90m 34 |[39m             [36mconst[39m filename [33m=[39m [36mawait[39m generateIntakeDoc(mockIntakeRecord[33m,[39m outputDir)[33m;[39m
+     [90m 35 |[39m
+    [31m[1m>[22m[39m[90m 36 |[39m             expect(filename)[33m.[39mtoMatch([35m/^Intake_John_Doe_.*\.docx$/[39m)[33m;[39m
+     [90m    |[39m                              [31m[1m^[22m[39m
+     [90m 37 |[39m             expect(fs[33m.[39mwriteFileSync)[33m.[39mtoHaveBeenCalledWith(
+     [90m 38 |[39m                 path[33m.[39mjoin(outputDir[33m,[39m filename)[33m,[39m
+     [90m 39 |[39m                 expect[33m.[39many([33mBuffer[39m)[0m
+
+      at src/tests/docxService.test.ts:36:30
+      at fulfilled (src/tests/docxService.test.ts:5:58)
+
+PASS src/tests/aiService.test.ts (11.65 s)
+PASS src/tests/triageController.test.ts (11.933 s)
+PASS src/tests/documentController.test.ts (18.048 s)
+PASS src/tests/controllers.test.ts (19.541 s)
+  ● Console
+
+    console.log
+      Loaded environment from C:\xampp\htdocs\will_guide\.env
+
+      at Object.<anonymous> (src/index.ts:18:13)
+
+    console.log
+      GEMINI_API_KEY present: true
+
+      at Object.<anonymous> (src/index.ts:19:13)
+
+    console.error
+      Controller Error: Error: AI crash
+          at C:\xampp\htdocs\will_guide\server\src\tests\controllers.test.ts:109:69
+          at Generator.next (<anonymous>)
+          at C:\xampp\htdocs\will_guide\server\src\tests\controllers.test.ts:8:71
+          at new Promise (<anonymous>)
+          at __awaiter (C:\xampp\htdocs\will_guide\server\src\tests\controllers.test.ts:4:12)
+          at Object.<anonymous> (C:\xampp\htdocs\will_guide\server\src\tests\controllers.test.ts:108:59)
+          at Promise.finally.completed (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at processTicksAndRejections (node:internal/process/task_queues:103:5)
+          at _runTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+          at run (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\runner.js:101:19)
+          at runTestInternal (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:275:16)
+          at runTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:343:7)
+          at Object.worker (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 15 |[39m         res[33m.[39mjson({ reply[33m:[39m aiResponse })[33m;[39m
+     [90m 16 |[39m     } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 17 |[39m         console[33m.[39merror([32m'Controller Error:'[39m[33m,[39m error)[33m;[39m
+     [90m    |[39m                 [31m[1m^[22m[39m
+     [90m 18 |[39m         res[33m.[39mstatus([35m500[39m)[33m.[39mjson({ error[33m:[39m [32m'Internal Server Error'[39m })[33m;[39m
+     [90m 19 |[39m     }
+     [90m 20 |[39m }[33m;[39m[0m
+
+      at src/controllers/clientAIController.ts:17:17
+          at Generator.throw (<anonymous>)
+      at rejected (src/controllers/clientAIController.ts:6:65)
+
+PASS src/tests/handleExplainRisk.test.ts (20.388 s)
+  ● Console
+
+    console.log
+      Loaded environment from C:\xampp\htdocs\will_guide\.env
+
+      at Object.<anonymous> (src/index.ts:18:13)
+
+    console.log
+      GEMINI_API_KEY present: true
+
+      at Object.<anonymous> (src/index.ts:19:13)
+
+    console.error
+      Explain Risk Error: Error: AI service unavailable
+          at C:\xampp\htdocs\will_guide\server\src\tests\handleExplainRisk.test.ts:40:54
+          at Generator.next (<anonymous>)
+          at C:\xampp\htdocs\will_guide\server\src\tests\handleExplainRisk.test.ts:8:71
+          at new Promise (<anonymous>)
+          at __awaiter (C:\xampp\htdocs\will_guide\server\src\tests\handleExplainRisk.test.ts:4:12)
+          at Object.<anonymous> (C:\xampp\htdocs\will_guide\server\src\tests\handleExplainRisk.test.ts:32:80)
+          at Promise.finally.completed (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at processTicksAndRejections (node:internal/process/task_queues:103:5)
+          at _runTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at _runTestsForDescribeBlock (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+          at run (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (C:\xampp\htdocs\will_guide\server\node_modules\jest-circus\build\runner.js:101:19)
+          at runTestInternal (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:275:16)
+          at runTest (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:343:7)
+          at Object.worker (C:\xampp\htdocs\will_guide\server\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 271 |[39m         res[33m.[39mjson({ explanation })[33m;[39m
+     [90m 272 |[39m     } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 273 |[39m         console[33m.[39merror([32m'Explain Risk Error:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 274 |[39m         res[33m.[39mstatus([35m500[39m)[33m.[39mjson({ message[33m:[39m [32m'Failed to explain risk'[39m })[33m;[39m
+     [90m 275 |[39m     }
+     [90m 276 |[39m }[33m;[39m[0m
+
+      at src/controllers/intakeController.ts:273:17
+          at Generator.throw (<anonymous>)
+      at rejected (src/controllers/intakeController.ts:6:65)
+
+
+Test Suites: 1 failed, 16 passed, 17 total
+Tests:       1 failed, 121 passed, 122 total
+Snapshots:   0 total
+Time:        21.845 s, estimated 30 s
+Ran all test suites.

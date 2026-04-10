@@ -1,0 +1,33 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 60
+      arrivalRate: 5
+      rampTo: 50
+      name: "Ramp up to 50 concurrent users"
+    - duration: 120
+      arrivalRate: 50
+      name: "Sustained high load (50 req/sec)"
+    - duration: 60
+      arrivalRate: 50
+      rampTo: 100
+      name: "Ramp up to 100 concurrent users"
+    - duration: 60
+      arrivalRate: 100
+      name: "Sustained peak load (100 req/sec)"
+  environments:
+    production:
+      target: "https://api.valiantai.ca"
+scenarios:
+  - name: "Health check and auth constraints"
+    flow:
+      - get:
+          url: "/api/health"
+          expect:
+            - statusCode: 200
+  - name: "Unauthenticated queue probing (simulating aggressive scans)"
+    flow:
+      - get:
+          url: "/api/lawyer/intakes"
+          expect:
+            - statusCode: 401

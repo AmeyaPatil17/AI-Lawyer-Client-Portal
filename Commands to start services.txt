@@ -1,0 +1,11 @@
+Run the backend: npm run dev in server directory.
+Run the frontend: npm run dev in client directory.
+Run: net start MongoDB
+
+seeded lawyer credentials:
+Email: lawyer@example.com
+Password: lawyerpassword123
+
+U: ameya_db_user
+P: eVExFKGmFTfZVsMM
+MongoDB URI: mongodb+srv://ameya_db_user:eVExFKGmFTfZVsMM@willguide.xuoy3ih.mongodb.net/?appName=willguide

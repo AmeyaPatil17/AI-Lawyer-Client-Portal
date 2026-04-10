@@ -1,0 +1,115 @@
+# Task List - Will Guide MVP
+
+- [x] Project Initialization
+  - [x] Create `implementation_plan.md` (Artifact)
+  - [x] Create `project_spec.md`
+  - [x] Create `.env`
+  - [x] Create project directory structure (client/server)
+  - [x] Initialize Vue.js frontend with Tailwind CSS
+  - [x] Initialize Node.js backend
+  - [x] Setup MongoDB connection (skeleton)
+- [x] Core Features Implementation
+  - [x] **Triage Module** AND **Auth**
+    - [x] User/Lawyer Authentication (RBAC) (Via Triage)
+    - [x] Triage Questionnaire UI
+    - [x] Triage Logic & Routing
+  - [x] **Intake Questionnaire (Wizard)**
+    - [x] Personal Profile Section
+    - [x] Executors & Alternates
+    - [x] Beneficiaries & Alternates
+    - [x] Assets Overview
+    - [x] Guardians/Trustees (Conditional)
+  - [x] **AI & Rules Engine**
+    - [x] Deterministic Rules Engine (Branching)
+    - [x] AI Guidance Layer (Mock/Integration)
+    - [x] Escalation Engine
+  - [x] **Lawyer Console**
+    - [x] Matter Summary View
+    - [x] Review & Flags Interface
+  - [x] **Docx Generation**
+    - [x] Implement Docx Generator
+    - [x] Checklist Verification
+      - [x] **Verify Intake against 'Wills Checklist Form.pdf'**
+      - [x] Implement missing questions from Checklist (Profile, POA, Assets, Distribution)
+    - [x] Verification & Testing
+      - [x] Manual Verification of Questionnaire Flow
+      - [x] Verify Output Document
+    - [x] Smart Features Implementation
+      - [x] **People Directory (Reuse logic)**
+      - [x] **Escalation Engine (Risk Flags)**
+      - [x] **AI Guidance Layer (UI + Integration)**
+  - [x] **Dashboard Optimization (Phase 1)**
+    - [x] Intelligent Routing (Resume Button)
+    - [x] Dynamic Progress Sidebar
+    - [x] Smart Stats (People Count)
+  - [x] **Dashboard Optimization (Phase 2 & 3)**
+    - [x] Profile Strength & Risk Scan Indicator
+    - [x] Review Locking Logic (Threshold Gated)
+    - [x] Draft Preview (Direct Download)
+  - [x] **Automated Tests**
+    - [x] Escalation Engine Unit Tests
+  - [x] **Lawyer Dashboard Enhancements**
+    - [x] Data Richness (Highlights Column)
+    - [x] Interactive Filters & Search
+    - [x] Visual Risk Badges
+    - [x] Status Workflow (Reviewing/Completed)
+    - [x] Quick View Modal (Side Drawer)
+  - [x] **AI Enhancements (Smart Summaries)**
+    - [x] Backend: AI Service & Intake Model Update
+    - [x] Backend: Generate Summary on Submission
+    - [x] Frontend: Display AI Summary in Dashboard
+  - [x] **AI Enhancements (Compliance Copilot)**
+    - [x] Frontend: Add Chat Interface to Quick View
+    - [x] Backend: Create /chat Endpoint
+    - [x] Backend: Implement Contextual AI Logic
+  - [x] **AI Enhancements (Priority Scoring)**
+    - [x] Backend: Add priorityScore to Model
+    - [x] Backend: Logic to Calculate Score (Assets + Complexity)
+    - [x] Frontend: Display Score & Sort by Priority
+  - [x] **AI Enhancements (Draft Optimization)**
+    - [x] Backend: Clause Recommendation Engine
+    - [x] Frontend: Suggestions Panel in Matter Detail
+  - [x] **AI Enhancements (Draft Optimization)**
+    - [x] Backend: Clause Recommendation Engine
+    - [x] Frontend: Suggestions Panel in Matter Detail
+
+  - [x] **Phase 2: Matter Management Deep-Dive**
+    - [x] **Interactive Data (Edit Intakes)**
+      - [x] Frontend: Toggle Edit Mode in MatterDetail
+      - [x] Backend: Ensure Partial Update Support
+    - [x] **Explain Risk Tooltip**
+      - [x] Backend: Explanation Logic
+      - [x] Frontend: Tooltip UI & Integration
+    - [x] **Advanced Document Generation**
+      - [x] Backend: Professional Formatting (Cover Page, Styles)
+      - [x] Backend: Asset & Family Tables
+      - [x] Backend: Auto-Drafting Clauses (Executors, Residue)
+    - [x] **Dashboard Insights**
+      - [x] Frontend: Portfolio Value Calculation
+      - [x] Frontend: Pipeline & Risk Visualization
+    - [ ] **Smart Nudges (Email Simulation)**
+      - [ ] Backend: Simulated Email Service
+      - [ ] Backend: Nudge Endpoint & Note Logging
+      - [ ] Frontend: "Send Reminder" Button
+    - [x] **Case Notes & Timeline**
+      - [x] Backend: Add Notes Schema to Intake
+      - [x] Frontend: Case Notes Sidebar Component
+    - [x] **Rich Asset Visualization**
+      - [x] Frontend: Detailed Asset Tables/Cards
+
+- [x] **Phase 3: Production Infrastructure (GCP)**
+  - [x] **Containerization**
+    - [x] Multi-stage Dockerfile (Client + Server)
+    - [x] Docker Ignore Optimization
+  - [x] **Cloud Build & CI/CD**
+    - [x] GitHub Actions Workflow (CI/CD)
+    - [x] Service Account Permissions Setup
+    - [x] Artifact Registry Configuration
+  - [x] **Cloud Run Deployment**
+    - [x] Initial Deployment to Cloud Run
+    - [x] Environment Variable Configuration (Mongo, Gemini)
+    - [x] Subdomain/CORS Configuration
+  - [x] **Production Hardening**
+    - [x] API Base URL handling (Relative Paths)
+    - [x] Security Headers (Helmet)
+    - [x] HTTPS Enforcement (Native to Cloud Run)
